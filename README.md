@@ -6,7 +6,7 @@ Elevator
 
 Elevator GIF
 
-
+![Elevator GIF](https://user-images.githubusercontent.com/93454693/192943119-f2ce19d3-9f83-457d-93ad-c979d6fd51be.GIF)
 
 What are the issues with the Current design, if any? Why? or Why not?
 
