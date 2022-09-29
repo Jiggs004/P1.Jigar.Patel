@@ -2,7 +2,7 @@
 
 Elevator
 
-
+![Elevator picture](https://user-images.githubusercontent.com/93454693/192941444-fc990e5f-4f78-41d9-9fbf-1f9043547d82.jpg)
 
 Elevator GIF
 
@@ -56,3 +56,6 @@ What are some common mistakes you can make with this current design?
 
   1. No mistakes can be made with this current design because everything that is needed in an elevator is already provided.
   
+Sketch
+
+![Sketch](https://user-images.githubusercontent.com/93454693/192942359-b8ba1b25-c05f-4134-a16d-dcfc56bfcd10.jpg)
