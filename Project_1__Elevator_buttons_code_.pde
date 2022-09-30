@@ -10,7 +10,11 @@ int helpButtonX, helpButtonY;  // Position of button 8
 int sizeOfCircleButtons = 65;       // Diameter of buttons
 int savedTime;
 int totalTime = 4000;
-color floor1Color, floor2Color, floor3Color, floor4Color, closeDoorColor, openDoorColor, alarmColor, helpColor, mainColor;
+String CurrentFloor1 = "1";
+String CurrentFloor2 = "2";
+String CurrentFloor3 = "3";
+String CurrentFloor4 = "4";
+color floor1Color, floor2Color, floor3Color, floor4Color, closeDoorColor, openDoorColor, alarmColor, helpColor, emergencyExit, mainColor;
 color highlightedButtonColor;
 color regularButtonColor;
 color elevatorButtons = color(000, 000, 000);     // Color of floor buttons
@@ -24,6 +28,7 @@ boolean pressedButton5 = false;
 boolean pressedButton6 = false;
 boolean pressedButton7 = false;
 boolean pressedButton8 = false;
+boolean pressedButton9 = false;
 PImage Number_1;
 PImage Number_2;
 PImage Number_3;
@@ -31,13 +36,14 @@ PImage Number_4;
 PImage Background;
 
 void setup() {
-  size(800, 600);
+  size(400, 600);
   savedTime = millis();
   Number_1 = loadImage("Braille_number_1.png");
   Number_2 = loadImage("Braille_number_2.png");
   Number_3 = loadImage("Braille_number_3.png");
   Number_4 = loadImage("Braille_number_4.png");
-  Background = loadImage("Metal_elevator_background.png");
+  Background = loadImage("Metal_background.png");
+  Background.resize(400,600);
 
   floor1Color = elevatorButtons;        // 1st floor button, #1 is blue
   floor2Color = elevatorButtons;        // 2nd floor button, #2 is blue
@@ -46,22 +52,23 @@ void setup() {
   closeDoorColor = elevatorButtons;        // Open door button, #5 is blue
   openDoorColor = elevatorButtons;        // Close door button, #6 is blue
   alarmColor = redButton;         // Alarm button, #7 is red
+  emergencyExit = redButton;
   helpColor = yellowButton;      // Help button, #8 is yellow
-
+  
   highlightedButtonColor = color(000,000,250);
   mainColor = color(102);
   regularButtonColor = mainColor;
-  firstFloorButtonX = width/2+sizeOfCircleButtons/2;
+  firstFloorButtonX = width/2+sizeOfCircleButtons/2+50;
   firstFloorButtonY = height-550;
-  secondFloorButtonX = width/2+sizeOfCircleButtons/2;
+  secondFloorButtonX = width/2+sizeOfCircleButtons/2+50;
   secondFloorButtonY = height-450;
-  thirdFloorButtonX = width/2+sizeOfCircleButtons/2;
+  thirdFloorButtonX = width/2+sizeOfCircleButtons/2+50;
   thirdFloorButtonY = height-350;
-  fourthFloorButtonX = width/2+sizeOfCircleButtons/2;
+  fourthFloorButtonX = width/2+sizeOfCircleButtons/2+50;
   fourthFloorButtonY = height-250;
-  closeDoorButtonX = width/2+sizeOfCircleButtons/2-100;
+  closeDoorButtonX = width/2+sizeOfCircleButtons/2;
   closeDoorButtonY = height-150;
-  openDoorButtonX = width/2+sizeOfCircleButtons/2-100;
+  openDoorButtonX = width/2+sizeOfCircleButtons/2;
   openDoorButtonY = height-50;
   alarmButtonX = width/2+sizeOfCircleButtons/2+100;
   alarmButtonY = height-150;
@@ -78,12 +85,13 @@ void draw() {
   int passedTime = millis() - savedTime;
   // Has four seconds passed?
   if (passedTime > totalTime) {
-    println("4 seconds have passed!");
     savedTime = millis(); // Save the current time to restart the timer!
   }
   
   if(pressedButton1) {
     fill(highlightedButtonColor);
+    textSize(50);
+    text("FLOOR: 1", 30, 80);
   } else {
     fill(floor1Color);
   }
@@ -146,25 +154,31 @@ void draw() {
   stroke(0);
   ellipse(helpButtonX, helpButtonY, sizeOfCircleButtons, sizeOfCircleButtons);
   
-  
+  fill(0);
+  rect(25,25,200,75);
+  rect(25,115,150,70);
   fill(255,255,255);
   textSize(25);
-  text("4",425,60);
-  text("3",425,160);
-  text("2",425,260);
-  text("1",425,360);
-  text(">|<",314,560);
-  text("<|>",314,460);
+  text("4", 275, 60);
+  text("3", 275, 160);
+  text("2", 275, 260);
+  text("1", 275, 360);
+  text("> | <", 212, 560);
+  text("< | >", 212, 460);
   textSize(20);
-  text("Help", 512,455);
-  fill(0,0,0);
-  text("Alarm",510,555);
+  text("HELP", 310, 455);
+  fill(0);
+  text("ALARM", 303, 555);
+  fill(255, 255, 255);
+  textSize(20);
+  text("CAPACITY: ", 50, 150);
+  text("2100 lbs", 50, 175);
   
   textSize(21);
-  image(Number_1, 445, 285);
-  image(Number_2, 445, 185);
-  image(Number_3, 445, 85);
-  image(Number_4, 445, -15);
+  image(Number_1, 295, 285);
+  image(Number_2, 295, 185);
+  image(Number_3, 295, 85);
+  image(Number_4, 295, -15);
   
 }
 
@@ -178,7 +192,7 @@ void update(int x, int y) {
     pressedButton6 = false;
     pressedButton7 = false;
     pressedButton8 = false;
-  } if(pressedButton2(secondFloorButtonX, secondFloorButtonY, sizeOfCircleButtons)) {
+  } else if(pressedButton2(secondFloorButtonX, secondFloorButtonY, sizeOfCircleButtons)) {
     pressedButton2 = true;
     pressedButton1 = false;
     pressedButton3 = false;
@@ -187,7 +201,7 @@ void update(int x, int y) {
     pressedButton6 = false;
     pressedButton7 = false;
     pressedButton8 = false;
-  } if(pressedButton3(thirdFloorButtonX, thirdFloorButtonY, sizeOfCircleButtons)) {
+  } else if(pressedButton3(thirdFloorButtonX, thirdFloorButtonY, sizeOfCircleButtons)) {
     pressedButton3 = true;
     pressedButton1 = false;
     pressedButton2 = false;
@@ -196,7 +210,7 @@ void update(int x, int y) {
     pressedButton6 = false;
     pressedButton7 = false;
     pressedButton8 = false;
-  } if(pressedButton4(fourthFloorButtonX, fourthFloorButtonY, sizeOfCircleButtons)) {
+  } else if(pressedButton4(fourthFloorButtonX, fourthFloorButtonY, sizeOfCircleButtons)) {
     pressedButton4 = true;
     pressedButton1 = false;
     pressedButton2 = false;
@@ -205,7 +219,7 @@ void update(int x, int y) {
     pressedButton6 = false;
     pressedButton7 = false;
     pressedButton8 = false;
-  } if(pressedButton5(closeDoorButtonX, closeDoorButtonY, sizeOfCircleButtons)) {
+  } else if(pressedButton5(closeDoorButtonX, closeDoorButtonY, sizeOfCircleButtons)) {
     pressedButton5 = true;
     pressedButton1 = false;
     pressedButton2 = false;
@@ -214,7 +228,7 @@ void update(int x, int y) {
     pressedButton6 = false;
     pressedButton7 = false;
     pressedButton8 = false;
-  } if(pressedButton6(openDoorButtonX, openDoorButtonY, sizeOfCircleButtons)) {
+  } else if(pressedButton6(openDoorButtonX, openDoorButtonY, sizeOfCircleButtons)) {
     pressedButton6 = true;
     pressedButton1 = false;
     pressedButton2 = false;
@@ -223,7 +237,7 @@ void update(int x, int y) {
     pressedButton5 = false;
     pressedButton7 = false;
     pressedButton8 = false;
-  } if(pressedButton7(alarmButtonX, alarmButtonY, sizeOfCircleButtons)) {
+  } else if(pressedButton7(alarmButtonX, alarmButtonY, sizeOfCircleButtons)) {
     pressedButton7 = true;
     pressedButton1 = false;
     pressedButton2 = false;
@@ -232,7 +246,7 @@ void update(int x, int y) {
     pressedButton5 = false;
     pressedButton6 = false;
     pressedButton8 = false;
-  } if(pressedButton8(helpButtonX, helpButtonY, sizeOfCircleButtons)) {
+  } else if(pressedButton8(helpButtonX, helpButtonY, sizeOfCircleButtons)) {
     pressedButton8 = true;
     pressedButton1 = false;
     pressedButton2 = false;
@@ -241,26 +255,44 @@ void update(int x, int y) {
     pressedButton5 = false;
     pressedButton6 = false;
     pressedButton7 = false;
+  } else {
+    pressedButton1 = pressedButton2 = pressedButton3 = pressedButton4 = pressedButton5 = pressedButton6 = pressedButton7 = pressedButton8 = false;
   }
 }
 
 void mousePressed() {
   if(pressedButton1) {
     regularButtonColor = floor1Color;
+    textSize(50);
+    text("FLOOR: 4", 30, 80);
   } if(pressedButton2) {
     regularButtonColor = floor2Color;
+    textSize(50);
+    text("FLOOR: 3", 30, 80);
   } if(pressedButton3) {
     regularButtonColor = floor3Color;
+    textSize(50);
+    text("FLOOR: 2", 30, 80);
   } if(pressedButton4) {
     regularButtonColor = floor4Color;
+    textSize(50);
+    text("FLOOR: 1", 30, 80);
   } if(pressedButton5) {
     regularButtonColor = closeDoorColor;
+    textSize(35);
+    text("OPEN DOOR", 30, 80);
   } if(pressedButton6) {
     regularButtonColor = openDoorColor;
+    textSize(35);
+    text("CLOSE DOOR", 30, 80);
   } if(pressedButton7) {
     regularButtonColor = alarmColor;
-  } if(pressedButton1) {
+    textSize(40);
+    text("HELP", 50, 80);
+  } if(pressedButton8) {
     regularButtonColor = helpColor;
+    textSize(40);
+    text("ALARM", 50, 80);
   }
 }
 
