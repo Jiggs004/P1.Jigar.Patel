@@ -62,6 +62,6 @@ Sketch
 
 Demo
 
-![Repository GIF](https://user-images.githubusercontent.com/93454693/192944005-c8dcf2d2-4c1c-4f31-8868-917832b7b437.GIF)
+![Repository GIF](https://user-images.githubusercontent.com/93454693/193190786-f714c697-d4ce-479e-8e18-e37a884d25a6.GIF)
 
 
