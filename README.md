@@ -33,7 +33,7 @@ The purposes of using elevators? (Rare Uses)
 The interface that I created, does it make it easier to do these common things?
 
   1. Yes, it makes these common thongs easier to do because my interface is very similar to the original elevator design but all buttons that are clicked 
-  will be displayed on the elevator screen (tiny screen that shows the selected/pressed button(s). 
+  will be displayed on the elevator screen (tiny screen that shows the selected/pressed button(s)). 
 
 Common sequence of actions? (Human Elevator interaction)
 
