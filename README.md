@@ -60,7 +60,7 @@ What are some common mistakes you can make with this current design?
 
   1. Users stand between elevators.
   2. Accidently pressing multiple buttons instead of pressing one button to take the users to their desired floor.
-  3. Users may hit the buttons which causes the elevator to travel more than it needs to.
+  3. Users may hit the buttons unintentionally which causes the elevator to travel more than it needs to.
   
 Sketch
 
