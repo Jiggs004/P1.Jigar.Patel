@@ -32,7 +32,8 @@ The purposes of using elevators? (Rare Uses)
   
 The interface that I created, does it make it easier to do these common things?
 
-  1. No, it does not make these easier to do because my interface is very similar to the original elevator design.
+  1. Yes, it makes these common thongs easier to do because my interface is very similar to the original elevator design but all buttons that are clicked 
+  will be displayed on the elevator screen (tiny screen that shows the selected/pressed button(s). 
 
 Common sequence of actions? (Human Elevator interaction)
 
@@ -44,6 +45,7 @@ Common sequence of actions? (Human Elevator interaction)
 How does the elevator support the user to figure out how to make it work?
  
   1. Elevator buttons light up after a button is selected/pressed.
+  2. Selected/pressed buttons are displayed on the elevator screen.
 
 How does the elevator provide feedback to the user? 
 
