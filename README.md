@@ -22,8 +22,8 @@ Why does the design have no issues with it?
 The purposes of using elevators? (Common Uses)
 
   1. Allows people to move and takes things from one floor to another floor of a building.
-  2. It contains buttons that perform important tasks such as the help button, it allows the people in the elevator to get in touch with security personnel.
-  3. People with disabilities can easily utilize them.
+  2. It contains buttons that perform important tasks such as the help button, it allows users in the elevator to get in touch with security personnel.
+  3. Displays the current floor the elevator is on.
   
 The purposes of using elevators? (Rare Uses)
 
@@ -46,6 +46,8 @@ How does the elevator support the user to figure out how to make it work?
  
   1. Elevator buttons light up after a button is selected/pressed.
   2. Selected/pressed buttons are displayed on the elevator screen.
+  3. Buttons are properly labeled and have Braille.
+  4. Users know what floor of the building they are currently on.
 
 How does the elevator provide feedback to the user? 
 
@@ -56,7 +58,9 @@ How does the elevator provide feedback to the user?
 
 What are some common mistakes you can make with this current design?
 
-  1. No mistakes can be made with this current design because everything that is needed in an elevator is already provided.
+  1. Users stand between elevators.
+  2. Accidently pressing multiple buttons instead of pressing one button to take the users to their desired floor.
+  3. Users may hit the buttons which causes the elevator to travel more than it needs to.
   
 Sketch
 
